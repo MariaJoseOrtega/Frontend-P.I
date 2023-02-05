@@ -1,0 +1,121 @@
+<script src="angular.min.js"></script>
+<script src="angular-messages.min.js"></script>
+<script src="materialize/js/jquery-latest.js"></script>
+<script src="materialize/js/materialize.min.js"></script>
+<script>
+    angular.module('messages', ['ngMessages']);
+</script>
+
+<div class="card-body">
+
+                    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar PDF
+                      <i class="mdi-content-send right"></i>
+                    </button>
+
+                    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar Convenio
+                      <i class="mdi-content-send right"></i>
+                    </button>
+
+                    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light left" type="submit">Generar ITV
+                      <i class="mdi-content-send right"></i>
+                    </button><br><br>
+                    <div class="pestanas">
+                      <a href="../datos-generales" class="Datos Generales">Datos Generales</a>
+                      <a href="../empresa" class="Empresa">Empresa</a>
+                      <a href="../integrantes" class="Integrantes">Integrantes</a>
+                      <a href="../actividades" class="Actividades">Actividades</a>
+                      <a href="../plan-de-trabajo" class="Plan de Trabajo">Plan de Trabajo</a>
+                      <a href="../firmas" class="Firma">Firmas</a>
+                      <a href="../bibliografia" class="Bibliografía">Bibliografía</a>
+                      <a href="../anexos" class="Anexos">Anexos</a>
+                      <a href="../observaciones" class="Observaciones">Observaciones</a>
+                      <a href="../documentos" class="Adjuntar Documentos">Adjuntar Documentos</a>
+                      <a href="../certificados" class="Solicitud de Certificados">Solicitud de Certificados</a>
+                    </div>
+
+<form name="registro" novalidate>
+    <div class="row">
+        <section class="input-field col s12 m6">
+            <label for="">Codigo de Proyecto:</label><br><br>
+            <input type="text" [(ngModel)]="currentEntity.codigo" name="codigo" required pattern="[ñáéíóúA-Za-z ]+">
+        </section>
+        <section class="input-field col s12 m6">
+            <label for="">Nombre del Proyecto:</label><br><br>
+            <input type="text" [(ngModel)]="currentEntity.nombrep" name="nombrep"  pattern="[ñáéíóúA-Za-z ]+">
+        </section>
+    </div>
+    <div class="row">
+      <section class="input-field col s12 m9">
+          <label for="">Nombre del Instituto: </label><br><br>
+          <input type="email" [(ngModel)]="currentEntity.nombrei" name="nombrei" >
+      </section>
+      <section class="input-field col s12 m3">
+          <label for="">Ciclo:</label><br><br>
+          <input type="text" [(ngModel)]="currentEntity.ciclo" name="ciclo">
+      </section>
+    </div>
+    <div class="row">
+        <section class="input-field col s12">
+            <label for="">Cobertura y Localización:</label><br><br>
+            <input type="text" class="materialize-textarea" [(ngModel)]="currentEntity.cobertura" name="cobertura" pattern="[ñáéíóú,.\w ]+">
+        </section>
+    </div>
+    <div class="row">
+    <section class="input-field col s12 m3">
+      <label for="">Carrera:</label><br>
+      <input type="number" [(ngModel)]="currentEntity.carreraId" name="carreraId">
+    </section>
+    <section class="input-field col s12 m3">
+      <label for="edad">Modalidad:</label><br><br>
+      <input class="with-gap" type="radio"  ng-model="" name="" id="presencial" value="presencial" required>
+      <label for="presencial">Presencial</label> &nbsp;&nbsp;
+      <input class="with-gap" type="radio" name="dual" id="dual" value="dual" required>
+      <label for="dual">Dual</label>
+    </section>
+    <div class="row">
+      <section class="input-field col s12 m9">
+        <label for="">Fecha:</label><br><br>
+        <input type="date" [(ngModel)]="currentEntity.fecha" name="fecha">
+    </section>
+    <section class="input-field col s12 m3">
+        <label for="">Plazo de Ejecución:</label><br><br>
+        <input type="date" [(ngModel)]="currentEntity.plazo" name="plazo">
+    </section>
+    </div>
+    <div class="row">
+      <section class="input-field col s12 m9">
+        <label for="">Financiamiento:</label><br><br>
+        <input type="date" [(ngModel)]="currentEntity.financiamiento" name="financiamiento">
+    </section>
+    <section class="input-field col s12 m3">
+        <label for="">Plazo de Vigencia del Convenio:</label><br><br>
+        <input type="date" [(ngModel)]="currentEntity.vigencia" name="vigencia">
+    </section>
+    </div>
+
+    <div class="row">
+      <section class="input-field col s12">
+          <label for="">Fecha de Presentación:</label><br><br>
+          <input type="date" class="materialize-textarea" [(ngModel)]="currentEntity.fechaPresentacion" name="fechaPresentacion" pattern="[ñáéíóú,.\w ]+">
+      </section>
+    </div>
+    <div class="row">
+      <section class="input-field col s12">
+          <label for="">Fecha de Inicio:</label><br><br>
+          <input type="date" class="materialize-textarea" [(ngModel)]="currentEntity.fechaInicio" name="fechaInicio" pattern="[ñáéíóú,.\w ]+">
+      </section>
+    </div>
+    <div class="row">
+      <section class="input-field col s12">
+          <label for="">Fecha Final:</label><br><br>
+          <input type="date" class="materialize-textarea" [(ngModel)]="currentEntity.fechaFinal" name="fechaFinal" pattern="[ñáéíóú,.\w ]+">
+      </section>
+    </div>
+
+    <button ng-disabled="registro.$invalid" class="btn waves-effect waves-light right" type="submit" (click)="save()">Confirmar
+        <i class="mdi-content-send right"></i>
+    </button>
+
+</div>
+</form>
+</div>
